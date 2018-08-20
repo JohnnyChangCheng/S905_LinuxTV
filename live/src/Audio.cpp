@@ -267,10 +267,11 @@ void  Audio::_encode_audio_frame(AVFrame *frame,int *data_written,int64_t now_pt
      output_packet->dts =now_pts;
     /* Write one audio frame from the temporary packet to the output file. */
     if (*data_written) {
-        _packet_wrapper->Push_packet(output_packet);
-    }else{
-        av_free_packet(output_packet);
+		av_interleaved_write_frame(_ofmt_ctx, output_packet);
     }
+    av_free_packet(output_packet);
+	av_freep(output_packet);
+
 }
 void Audio::FlushEncoder(){
     try{

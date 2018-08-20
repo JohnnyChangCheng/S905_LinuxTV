@@ -44,8 +44,8 @@ namespace Noovo{
         Queue<AVFrame*> *_frame_queue = nullptr;
         Queue<AVPacket*> *_packet_queue = nullptr;
         std::shared_ptr<Packet_wrapper> _packet_wrapper =nullptr;
-        int  _videodecoder();
-        int  _encode_frame();
+		int  _videodecoder(AVPacket* packet, AVFrame* decode_frame);
+        int  _encode_frame(AVFrame* decode_frame);
         void _resetpts(AVPacket*);
         void _caluculate_duration();
         void _yuvtonv12(AVFrame *frame,uint8_t*);

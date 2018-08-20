@@ -16,13 +16,11 @@ namespace Noovo {
 	public:
 		Dvbtlive();
 		~Dvbtlive();
-		Dt_Error_t Init(unsigned int fre, unsigned int band,std::vector<std::pair<int, int>>& pids,SYS_t model );
+		Dt_Error_t Init(unsigned int fre, unsigned int band,std::vector<std::pair<int, int>>& pids );
 		void MainThread(std::vector<std::pair<int, int>> pids);
-		void DVRThread();
 	private:
 		void _livethread(std::vector<std::pair<int, int>> pids);
-		void _dvrthread();
-		void _testthread(int(*read)(void *a, uint8_t *b, int c));
+		void  _dvrthread();
 		Dvrlock* _dvr = nullptr;
 	};
 

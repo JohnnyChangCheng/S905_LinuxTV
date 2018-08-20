@@ -73,12 +73,12 @@ static AVL_uchar g_u16Total_tp = 0;
 void SetChipID(int chip){
     if(chip == 0){
         g_ChipNo =0;
-        global_tuner_s.usTunerI2CAddr = 0x62;
-        global_tuner_t_c.usTunerI2CAddr = 0x60;
+        global_tuner_s.usTunerI2CAddr == 0x62;
+        global_tuner_t_c.usTunerI2CAddr == 0x60;
     }else if(chip==1){
         g_ChipNo =1;
-        global_tuner_s.usTunerI2CAddr =0x63;
-        global_tuner_t_c.usTunerI2CAddr =0x61;
+        global_tuner_s.usTunerI2CAddr == 0x62;
+        global_tuner_t_c.usTunerI2CAddr == 0x60;
     }
 }
 AVL_ErrorCode A8293_Control( AVL_uint32 LNB_LEVEL)

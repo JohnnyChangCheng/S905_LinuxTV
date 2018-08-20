@@ -15,7 +15,7 @@ int main(void)
 {
     Dvbtlive *_dvb=new Dvbtlive();
     std::vector<std::pair<int,int>> Pid = {{3041,-1}};
-    _dvb->Init(557000 ,6000,Pid,DVBTX);
-    _dvb->DVRThread();
+    _dvb->Init(557000,6000,Pid);
+    _dvb->MainThread(Pid);
 
 }

@@ -68,7 +68,7 @@ AVL_CommonConfig AVL_CommonConfigChip1 =
     0x15,
     Xtal_30M,
     
-    AVL_TS_SERIAL,
+    AVL_TS_PARALLEL,
     AVL_MPCM_RISING,
     AVL_TS_CONTINUOUS_ENABLE
 };

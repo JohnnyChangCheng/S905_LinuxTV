@@ -13,7 +13,6 @@ namespace Noovo {
 		NV_AVL_Error_t SetDvbsys(unsigned int dvbsystem);
 		unsigned int GetDvbSystem();
 		NV_AVL_Error_t Lockchannel(unsigned int frequency,unsigned int bandwidth);
-		NV_AVL_Error_t Lockchannel_S(unsigned int frequency,unsigned int bandwidth);
 		NV_AVL_Error_t GetSQI(int &sqi);
 		NV_AVL_Error_t GetSNR(float &snr);
 		NV_AVL_Error_t GetSSI(int &ssi);

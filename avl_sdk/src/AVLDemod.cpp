@@ -82,22 +82,6 @@ NV_AVL_Error_t AVLDemod::Lockchannel(unsigned int frequency,unsigned int bandwid
     }
 	return ret;
 }
-NV_AVL_Error_t AVLDemod::Lockchannel_S(unsigned int frequency,unsigned int bandwidth){ 
-    int ret=0;
-	AVL_uchar nLockFlag =0;
-	try{
-		ret=AVL_LockChannel_DVBSx(frequency, bandwidth); 
-		AVL_Check_LockStatus(&nLockFlag) ;
-		if(nLockFlag!=1){
-			ret = AVL_NONE_LOCK;
-			throw std::runtime_error(std::string("Error in channel lock:")+std::to_string(__LINE__));
-		}
-		_frequency=frequency;
-	}catch(std::runtime_error e){
-         std::cout << "Runtime error: " << e.what()<<std::endl;
-    }
-	return ret;
-}
 NV_AVL_Error_t AVLDemod::GetSQI(int &sqi){
 	int ret = 0;
 	ret=get_SQI_info(sqi);

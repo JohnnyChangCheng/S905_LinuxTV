@@ -23,9 +23,7 @@ namespace Noovo {
 		}
 		inline int Copy(uint8_t* buf, int size){
 			int copy=(size > _size)?_size:size;
-			memcpy(buf,_data+_offset,copy);	
-			_offset += copy;
-			_size -= copy;
+			memcpy(buf,_data,copy);	
 			return copy;
 		}
 		inline int Returnsize() {
@@ -37,7 +35,6 @@ namespace Noovo {
 
 	private:
 		T1 * _data = nullptr;
-		unsigned int _offset = 0;
 		unsigned int _size = 0;
 	};
 	//For pointer one

@@ -98,10 +98,6 @@ void CtxWrapper::_findDecoder(int streamid){
     if (ret < 0) {
         throw std::runtime_error("Failed to open decoder for stream");
     }
-    if(codec_ctx->codec_type==AVMEDIA_TYPE_VIDEO){
-        codec_ctx->thread_count = 8;
-	    codec_ctx->thread_type = FF_THREAD_FRAME;   
-    }
 }
 int  CtxWrapper::_ofmtInital(const std::string& filename,int pid_first,int pid_sec
                             ,std::unordered_map<int,std::shared_ptr<Stream> >& Pid_Obj){
@@ -164,7 +160,7 @@ int  CtxWrapper::_ofmtInital(const std::string& filename,int pid_first,int pid_s
         _ofmtheader(ofmt_ctx,filename);
         fmt_wrapper->SetStream(Pid_audio,Pid_video);
         _fmtwrapper_list.push_back(fmt_wrapper);       
-		packet_wrapper->Write_frame();
+		//packet_wrapper->Write_frame();
         return 0;       
     }catch(std::exception const& e) {
         std::cout << "Exception: " << e.what() ;
